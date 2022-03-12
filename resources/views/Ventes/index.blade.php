@@ -8,7 +8,7 @@
     <table class="table table-bordered table-striped table-sm table-hover">
         <thead>
             <tr>
-                <th>ID</th>
+
                 <th>NOM</th>
                 <th>PRIX</th>
                 <th>NOMBRE</th>
@@ -17,7 +17,7 @@
         <tbody>
             @foreach ($ventes as $art)
                 <tr>
-                    <td>{{$art->id}}</td>
+
                     <td>{{$art->nom}}</td>
                     <td>{{$art->prixvente}}</td>
                     <td>{{$art->nombrevente}}</td>
