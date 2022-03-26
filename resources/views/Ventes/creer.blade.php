@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-sm btn-success mt-4" type="submit">AJOUTER <i class="fa fa-save"></i></button>
+                    <button id="btn-add" class="btn btn-sm btn-success mt-4" type="submit">AJOUTER <i class="fa fa-save"></i></button>
                 </div>
             </div>
     </div>
@@ -34,7 +34,7 @@
     <div class="card">
         <div class="card-header">CONTENU</div>
         <div class="card-body">
-            <table class="table table-bordered table-sm">
+            <table id="tab-vente" class="table table-bordered table-sm">
                 <thead>
                     <tr>
                         <th>ARTICLE</th>
@@ -42,18 +42,33 @@
                         <th></th>
                     </tr>
                 </thead>
+                <tbody>
+                </tbody>
             </table>
         </div>
         <div class="card-footer">
-            <button class="btn btn-info btn-sm">ENREGISTRER</button>
+            <button id="btn-save" class="btn btn-info btn-sm">ENREGISTRER</button>
         </div>
     </div>
 
 </div>
-
+<script src="{{ asset('sbtheme/vendor/jquery/jquery.js')}}"></script>
 <script>
     //console.log('Bonjour, ici une nouvelle vente');
    // console.log({})
+   $('#btn-add').click(function(){
+       console.log($('#qte').val());
+       console.log($( "#article_id option:selected" ).text());
+       var qte = $('#qte').val();
+       var designation = $( "#article_id option:selected" ).text();
+       var article_id = $('#article_id').val();
+       $('#tab-vente').find('tbody').append('<tr><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
+   });
+
+   $('#btn-save').click(function(){
+        console.log("Je veux enregistrers");
+       $('#tab-vente').find('tbody').append('<tr><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
+   });
 
 </script>
 
