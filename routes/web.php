@@ -65,7 +65,13 @@ Route::post('/ventes/enregistrer', 'VenteController@enregistrer');
 
 
 Route::get('/livraisons', 'LivraisonController@index');
+Route::get('/livraisons/creer', 'LivraisonController@creer');
+Route::post('/livraisons/enregistrer', 'LivraisonController@enregistrer');
+
+
 Route::get('/commandes', 'CommandeController@index');
+Route::get('/commandes/creer', 'CommandeController@creer');
+Route::post('/commandes/enregistrer', 'CommandeController@enregistrer');
 
 
 Route::get('/fournisseurs', 'FournisseurController@index');

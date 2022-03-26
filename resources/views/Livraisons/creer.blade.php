@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>NOUVELLE VENTE</h3>
+        <h3>NOUVELLE LIVRAISON</h3>
     </div>
     <div class="card-body">
             @csrf
@@ -22,7 +22,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">QUANTITE</label>
-                        <input id='qte' class="form-control" name="prixvente" type="number">
+                        <input class="form-control" name="quantity" type="number">
                     </div>
                 </div>
                 <div class="col-2">
@@ -50,11 +50,4 @@
     </div>
 
 </div>
-
-<script>
-    //console.log('Bonjour, ici une nouvelle vente');
-   // console.log({})
-
-</script>
-
 @endsection

@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Employe extends Model
+class Commande extends Model
 {
 
     public $timestamps = false;
     protected $guarded = ['id'];
 
-    public function ventes(){
-        return $this->hasMany('App\Models\Vente');
+    public function fournisseurs(){
+        return $this->hasMany('App\Models\Fournisseur');
     }
 }
