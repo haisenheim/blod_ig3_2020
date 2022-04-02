@@ -60,7 +60,10 @@ Route::get('/Article/tous', 'ArticleController@getAll' );
 Route::get('/Article/categorie', 'ArticleController@getAll' );
 
 Route::get('/ventes', 'VenteController@index');
+
 Route::get('/ventes/creer', 'VenteController@creer');
+Route::get('/ventes/{id}', 'VenteController@show');
+
 Route::post('/ventes/enregistrer', 'VenteController@enregistrer');
 
 

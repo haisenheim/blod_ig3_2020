@@ -57,17 +57,39 @@
     //console.log('Bonjour, ici une nouvelle vente');
    // console.log({})
    $('#btn-add').click(function(){
-       console.log($('#qte').val());
-       console.log($( "#article_id option:selected" ).text());
+       //console.log($('#qte').val());
+       //console.log($( "#article_id option:selected" ).text());
        var qte = $('#qte').val();
        var designation = $( "#article_id option:selected" ).text();
        var article_id = $('#article_id').val();
-       $('#tab-vente').find('tbody').append('<tr><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
+       $('#tab-vente').find('tbody').append('<tr data-quantity='+ qte +' data-id='+ article_id +'><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
    });
 
    $('#btn-save').click(function(){
-        console.log("Je veux enregistrers");
-       $('#tab-vente').find('tbody').append('<tr><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
+        //console.log("Je veux enregistrer");
+        var data = [];
+        $('#tab-vente').find('tbody tr').each(function(){
+            var elt = {};
+            var tr = $(this);
+            elt.id = tr.data('id');
+            elt.qty = tr.data('quantity');
+            //console.log(elt);
+            data.push(elt);
+        });
+        console.log(data);
+        $.ajax({
+            url:'/ventes/enregistrer',
+            type:'post',
+            dataType:'json',
+            data:{_token:$('input[name ="_token"]').val(), panier:data},
+            success:function(donnees){
+                console.log(donnees);
+            },
+            error:function(){
+                alert("Something went wrong !!!");
+            }
+        });
+       //$('#tab-vente').find('tbody').append('<tr><td>'+designation+'</td><td>'+qte+'</td><td></td></tr>');
    });
 
 </script>

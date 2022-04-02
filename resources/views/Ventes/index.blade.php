@@ -8,19 +8,19 @@
     <table class="table table-bordered table-striped table-sm table-hover">
         <thead>
             <tr>
-
-                <th>NOM</th>
-                <th>PRIX</th>
-                <th>NOMBRE</th>
+                <th>DATE</th>
+                <th>NUMERO</th>
+                <th>VENDEUR</th>
+                <th>TOTAL</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($ventes as $art)
+            @foreach ($ventes as $vente)
                 <tr>
-
-                    <td>{{$art->nom}}</td>
-                    <td>{{$art->prixvente}}</td>
-                    <td>{{$art->nombrevente}}</td>
+                    <td>{{ date_format($vente->created_at, 'd/m/Y H:i')}}</td>
+                    <td><a href="/ventes/{{ $vente->id }}"> {{$vente->name}} </a></td>
+                    <td>{{$vente->employe->nom . "  ".$vente->employe->prenom}}</td>
+                    <td>{{$vente->total}}</td>
                 </tr>
             @endforeach
         </tbody>
