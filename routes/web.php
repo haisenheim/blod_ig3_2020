@@ -52,6 +52,8 @@ Route::post('/articles/enregistrer', 'ArticleController@enregistrer');
 Route::get('/home/{id}', 'HomeController@show');
 
 Route::get('/article/{id}','ArticleController@show');
+Route::get('/article/disable/{id}','ArticleController@disable');
+Route::get('/article/enable/{id}','ArticleController@enable');
 
 Route::get('article/enregistrer','ArticleController@store');
 

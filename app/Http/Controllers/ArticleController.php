@@ -21,6 +21,21 @@ class ArticleController extends Controller
         return view ('Articles/creer')->with(compact('cats'));
     }
 
+    public function enable($id){
+        $article = Article::find($id);
+        $article->active = 1;
+        $article->save();
+
+        return redirect()->back();
+    }
+
+    public function disable($id){
+        $article = Article::find($id);
+        $article->active = 0;
+        $article->save();
+        return redirect()->back();
+    }
+
     public function enregistrer(Request $request){
        // dd($request);
        $article = new Article();

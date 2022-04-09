@@ -83,7 +83,8 @@
             dataType:'json',
             data:{_token:$('input[name ="_token"]').val(), panier:data},
             success:function(donnees){
-                console.log(donnees);
+                //console.log(donnees);
+               window.location.replace('/ventes/'+donnees)
             },
             error:function(){
                 alert("Something went wrong !!!");

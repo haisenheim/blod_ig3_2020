@@ -18,7 +18,7 @@ class VenteController extends Controller
 
 
 public function creer(){
-        $articles = Article::all();
+        $articles = Article::all()->where('active',1);
         return view ('Ventes/creer')->with(compact('articles'));
     }
 
@@ -36,9 +36,13 @@ public function creer(){
                 'article_id' =>$lignes[$i]['id'],
                 'quantity' =>$lignes[$i]['qty'],
             ]);
+
+            $article = Article::find($lignes[$i]['id']);
+            $article->quantite = $article->quantite - $lignes[$i]['qty'];
+            $article->save();
         }
 
-       return  response()->json($vente);
+       return  response()->json($vente->id);
     }
 
     public function show($id){
