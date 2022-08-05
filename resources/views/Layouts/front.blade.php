@@ -23,14 +23,14 @@
 
 </head>
 <body>
-
+    <?php $param = App\Models\Param::find(1); ?>
 	<header>
 
 		<div class="top-menu">
 
 			<ul class="left-area welcome-area">
-				<li class="hello-blog">Hello nice people, welcome to my blog</li>
-				<li><a href="mailto:contact@juliblog.com">contact@juliblog.com</a></li>
+				<li class="hello-blog">Salut tout le monde et Bienvenu sur notre blog</li>
+				<li><a href="mailto:contact@juliblog.com">{{ $param->email }}</a></li>
 			</ul><!-- left-area -->
 
 
@@ -38,7 +38,7 @@
 
 				<div class="src-area">
 					<form action="post">
-						<input class="src-input" type="text" placeholder="Search">
+						<input class="src-input" type="text" placeholder="Rechercher ...">
 						<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
 					</form>
 				</div><!-- src-area -->
@@ -47,8 +47,6 @@
 					<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
 					<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
 					<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-					<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-					<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
 				</ul><!-- right-area -->
 
 			</div><!-- right-area -->
@@ -62,10 +60,12 @@
 			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
 
 			<ul class="main-menu visible-on-click" id="main-menu">
-				<li class="drop-down"><a href="#!">HOME<i class="ion-ios-arrow-down"></i></a>
+				<li><a href="/">ACCUEIL</a></li>
+                <li><a href="/about">A PROPOS</a></li>
+                <li class="drop-down"><a href="#!">CATEGORIES<i class="ion-ios-arrow-down"></i></a>
 
 					<ul class="drop-down-menu">
-						<li><a href="#">FEATURED</a></li>
+						<li><a href="#">XXXXX</a></li>
 						<li><a href="#">ABOUT</a></li>
 						<li class="drop-down"><a href="#!">CATEGORIES<i class="ion-ios-arrow-right"></i></a>
 							<ul class="drop-down-menu drop-down-inner">
@@ -77,9 +77,8 @@
 					</ul>
 
 				</li>
-				<li><a href="#">FEATURED</a></li>
+
 				<li><a href="03-About-me.html">ABOUT</a></li>
-				<li><a href="#">CATEGORIES</a></li>
 				<li><a href="/contact">CONTACT</a></li>
 			</ul><!-- main-menu -->
 
@@ -87,7 +86,6 @@
 	</header>
 
     @yield('slider')
-
 
 	<section class="section blog-area">
 		<div class="container">
@@ -134,8 +132,7 @@
 							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
 							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+
 						</ul>
 					</div><!-- footer-section -->
 				</div><!-- col-lg-4 col-md-6 -->
