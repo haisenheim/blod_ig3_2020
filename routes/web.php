@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Models\Slide;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/','TBordController@index');
 Route::get('/',function(){
-    return view('FrontOffice/index');
+    $slides = Slide::where('active',1)->get();
+    //dd($slides);
+    return view('FrontOffice/index')->with(compact('slides'));
 });
 
 Route::get('/about',function(){
@@ -44,11 +47,20 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
         Route::get('articles','ArticleController@index');
+        Route::post('articles','ArticleController@store');
+        Route::get('/dashboard','DashboardController@index');
+        Route::get('/slides','SlideController@index');
+        Route::post('/slides','SlideController@store');
+        Route::get('/slides/enable/{id}','SlideController@enable');
+        Route::get('/slides/disable/{id}','SlideController@disable');
+        Route::resource('/categories','CategorieController');
+        Route::get('/categories/enable/{id}','CategorieController@enable');
+        Route::get('/categories/disable/{id}','CategorieController@disable');
     });
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', function(){
-    return redirect('/admin/articles');
+    return redirect('/admin/dashboard');
 })->name('home');

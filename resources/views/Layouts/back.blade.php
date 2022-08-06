@@ -33,7 +33,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">IG3GESTCOM</div>
+                <div class="sidebar-brand-text mx-3">BLOG IG3</div>
             </a>
 
             <!-- Divider -->
@@ -51,45 +51,33 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/ventes">
+                <a class="nav-link" href="/admin/articles">
                     <i class="fas fa-fw fa-coins"></i>
-                    <span>VENTES</span></a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/commandes">
-                    <i class="fas fa-fw fa-arrow-right"></i>
-                    <span>COMMANDES</span></a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/livraisons">
-                    <i class="fas fa-fw fa-arrow-left"></i>
-                    <span>LIVRAISONS</span></a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/articles">
-                    <i class="fas fa-fw fa-truck"></i>
                     <span>ARTICLES</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/fournisseurs">
-                    <i class="fas fa-fw fa-truck"></i>
-                    <span>FOURNISSEURS</span></a>
+                <a class="nav-link" href="/admin/categories">
+                    <i class="fas fa-fw fa-arrow-right"></i>
+                    <span>CATEGORIES</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/employes">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>EMPLOYES</span></a>
+                <a class="nav-link" href="/admin/slides">
+                    <i class="fas fa-fw fa-arrow-left"></i>
+                    <span>SLIDES</span></a>
             </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/tags">
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>MOTS CLEFS</span></a>
+            </li>
+
+           
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

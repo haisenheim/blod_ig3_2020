@@ -13,6 +13,10 @@ class Article extends Model
         return $this->belongsTo('App\Models\Categorie','category_id');
     }
 
+    public function auteur(){
+        return $this->belongsTo('App\User','user_id');
+    }
+
     public function tags(){
         return $this->belongsToMany('App\Models\Tag','articles_tags');
     }
