@@ -1,15 +1,14 @@
 @extends('Layouts.front')
 
 @section('content')
-<link href="template/01-homepage/css/styles.css" rel="stylesheet">
+<link href="/template/02-Single-post/css/styles.css" rel="stylesheet">
 
-<link href="template/01-homepage/css/responsive.css" rel="stylesheet">
+<link href="/template/02-Single-post/css/responsive.css" rel="stylesheet">
 <div class="row">
 
     <div class="col-lg-8 col-md-12">
         <div class="blog-posts">
 
-            @foreach ($articles as $article)
             <div class="single-post">
                 <div class="image-wrapper"><img src="{{ asset('img/articles/'.$article->photo) }}" alt="Blog Image"></div>
 
@@ -25,10 +24,10 @@
                 </div>
                 <h6 class=""><em>{{ date_format($article->created_at,'d/m/Y H:i') }}</em></h6>
                 <h3 class="title"><a href="#"><b class="light-color">{{ $article->name }}</b></a></h3>
-                <p>{{ Str::limit($article->body, 30, '...') }}</p>
-                <a class="btn read-more-btn" href="/article/{{ $article->id }}"><b>Lire plus</b></a>
+                <p>{{ $article->body}}</p>
+
             </div><!-- single-post -->
-            @endforeach
+
 
             <div class="row">
 
@@ -303,21 +302,4 @@
 </div><!-- row -->
 @endsection
 
-@section('slider')
-<div class="main-slider">
-    <div id="slider">
-        @foreach ($slides as $slide)
-        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:104; kenburnsscale:1.00;">
-            <img src="{{ asset('img/slides/'.$slide->image_uri) }}" class="ls-bg" alt="" />
 
-                <div class="slider-content ls-l" style="top:60%; left:30%;" data-ls="offsetyin:100%; offsetxout:-50%; durationin:800; delayin:100; durationout:400; parallaxlevel:0;">
-                    <a class="btn" href="#">Action</a>
-                    <h3 class="title"><b>{{ $slide->titre }}</b></h3>
-                    <h6>{{ date_format($slide->created_at,'d/m/Y') }}</h6>
-                </div>
-
-        </div><!-- ls-slide -->
-        @endforeach
-    </div><!-- slider -->
-</div><!-- main-slider -->
-@endsection

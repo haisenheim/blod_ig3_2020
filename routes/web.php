@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Models\Article;
 use App\Models\Slide;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +23,16 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/','TBordController@index');
 Route::get('/',function(){
     $slides = Slide::where('active',1)->get();
+    $articles = Article::all();
     //dd($slides);
-    return view('FrontOffice/index')->with(compact('slides'));
+    return view('FrontOffice/index')->with(compact('slides','articles'));
 });
 
 Route::get('/about',function(){
     return view('FrontOffice/about');
 });
+
+
 Route::get('/contact',function(){
     return view('FrontOffice/contact');
 });
@@ -38,6 +42,13 @@ Route::get('/articles',function(){
 Route::get('/categories',function(){
     return view('FrontOffice/categories');
 });
+Route::namespace('FrontOffice')
+    ->name('front.')
+    ->group(function(){
+        Route::get('articles','ArticleController@index');
+        Route::get('/article/{id}','ArticleController@show');
+        Route::get('/categorie/{id}','ArticleController@getCategorie');
+    });
 
 //Route::get('admin/articles','BackOffice\ArticleController@index')->middleware('auth');
 

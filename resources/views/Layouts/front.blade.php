@@ -23,7 +23,7 @@
 
 </head>
 <body>
-    <?php $param = App\Models\Param::find(1); ?>
+    <?php $param = App\Models\Param::find(1); $catxxs = App\Models\Categorie::all(); ?>
 	<header>
 
 		<div class="top-menu">
@@ -65,15 +65,9 @@
                 <li class="drop-down"><a href="#!">CATEGORIES<i class="ion-ios-arrow-down"></i></a>
 
 					<ul class="drop-down-menu">
-						<li><a href="#">XXXXX</a></li>
-						<li><a href="#">ABOUT</a></li>
-						<li class="drop-down"><a href="#!">CATEGORIES<i class="ion-ios-arrow-right"></i></a>
-							<ul class="drop-down-menu drop-down-inner">
-								<li><a href="#">FEATURED</a></li>
-								<li><a href="#">ABOUT</a></li>
-								<li><a href="#">CATEGORIES</a></li>
-							</ul>
-						</li>
+						@foreach ($catxxs as $catxx)
+                        <li><a href="/categorie/{{ $catxx->id }}">{{ $catxx->name }}</a></li>
+                        @endforeach
 					</ul>
 
 				</li>
