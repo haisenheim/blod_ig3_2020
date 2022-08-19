@@ -67,6 +67,9 @@ Route::prefix('admin')
         Route::resource('/categories','CategorieController');
         Route::get('/categories/enable/{id}','CategorieController@enable');
         Route::get('/categories/disable/{id}','CategorieController@disable');
+        Route::get('infos','DashboardController@getForm');
+        Route::post('infos','DashboardController@saveForm');
+
     });
 
 Auth::routes();
