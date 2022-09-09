@@ -192,73 +192,32 @@
 
             </div><!-- sidebar-section src-area -->
 
-            <div class="sidebar-section newsletter-area">
-                <h5 class="title"><b>Subscribe to our newsletter</b></h5>
-                <form action="post">
-                    <input class="email-input" type="text" placeholder="Your email here">
-                    <button class="btn btn-2" type="submit">SUBSCRIBE</button>
-                </form>
-            </div><!-- sidebar-section newsletter-area -->
+
 
             <div class="sidebar-section category-area">
                 <h4 class="title"><b class="light-color">Categories</b></h4>
+                @foreach ($categories as $categorie)
                 <a class="category" href="#">
-                    <img src="images/category-1-400x150.jpg" alt="Category Image">
-                    <h6 class="name">TRAVEL</h6>
+                    <img src="{{ asset('img/categories/'.$categorie->image_uri) }}" alt="Category Image">
+                    <h6 class="name">{{ $categorie->name }}</h6>
                 </a>
+                @endforeach
 
-                <a class="category" href="#">
-                    <img src="images/category-2-400x150.jpg" alt="Category Image">
-                    <h6 class="name">FASHION</h6>
-                </a>
-
-                <a class="category" href="#">
-                    <img src="images/category-3-400x150.jpg" alt="Category Image">
-                    <h6 class="name">LIFESTYLE</h6>
-                </a>
-                <a class="category" href="#">
-                    <img src="images/category-4-400x150.jpg" alt="Category Image">
-                    <h6 class="name">DESIGN</h6>
-                </a>
             </div><!-- sidebar-section category-area -->
 
             <div class="sidebar-section latest-post-area">
-                <h4 class="title"><b class="light-color">Latest Posts</b></h4>
+                <h4 class="title"><b class="light-color">Derniers articles</b></h4>
 
+                @foreach ($articles as $art)
                 <div class="latest-post" href="#">
-                    <div class="l-post-image"><img src="images/recent-post-1-150x200.jpg" alt="Category Image"></div>
+                    <div class="l-post-image"><img src="{{ asset('img/articles/'.$art->photo) }}" alt="Category Image"></div>
                     <div class="post-info">
-                        <a class="btn category-btn" href="#">TRAVEL</a>
-                        <h5><a href="#"><b class="light-color">One more night in the clubs</b></a></h5>
-                        <h6 class="date"><em>Monday, October 13, 2017</em></h6>
-                    </div>
-                </div>
+                        <a class="btn category-btn" href="#">{{ $art->name }}</a>
 
-                <div class="latest-post" href="#">
-                    <div class="l-post-image"><img src="images/recent-post-2-150x200.jpg" alt="Category Image"></div>
-                    <div class="post-info">
-                        <a class="btn category-btn" href="#">TRAVEL</a>
-                        <h5><a href="#"><b class="light-color">Travel lights in winter</b></a></h5>
-                        <h6 class="date"><em>Monday, October 13, 2017</em></h6>
+                        <h6 class="date"><em>{{ date_format($art->created_at,'d/m/Y') }}</em></h6>
                     </div>
                 </div>
-                <div class="latest-post" href="#">
-                    <div class="l-post-image"><img src="images/recent-post-3-150x200.jpg" alt="Category Image"></div>
-                    <div class="post-info">
-                        <a class="btn category-btn" href="#">TRAVEL</a>
-                        <h5><a href="#"><b class="light-color">How to travel with no money</b></a></h5>
-                        <h6 class="date"><em>Monday, October 13, 2017</em></h6>
-                    </div>
-                </div>
-
-                <div class="latest-post" href="#">
-                    <div class="l-post-image"><img src="images/recent-post-4-150x200.jpg" alt="Category Image"></div>
-                    <div class="post-info">
-                        <a class="btn category-btn" href="#">TRAVEL</a>
-                        <h5><a href="#"><b class="light-color">Smile 10 times a day</b></a></h5>
-                        <h6 class="date"><em>Monday, October 13, 2017</em></h6>
-                    </div>
-                </div>
+                @endforeach
 
             </div><!-- sidebar-section latest-post-area -->
 
@@ -284,15 +243,11 @@
             </div><!-- sidebar-section instagram-area -->
 
             <div class="sidebar-section tags-area">
-                <h4 class="title"><b class="light-color">Tags</b></h4>
+                <h4 class="title"><b class="light-color">Mots de clef</b></h4>
                 <ul class="tags">
-                    <li><a class="btn" href="#">design</a></li>
-                    <li><a class="btn" href="#">fasinon</a></li>
-                    <li><a class="btn" href="#">travel</a></li>
-                    <li><a class="btn" href="#">music</a></li>
-                    <li><a class="btn" href="#">video</a></li>
-                    <li><a class="btn" href="#">photography</a></li>
-                    <li><a class="btn" href="#">adventure</a></li>
+                    @foreach ($tags as $tag)
+                    <li><a class="btn" href="#">{{ $tag->name }}</a></li>
+                    @endforeach
                 </ul>
             </div><!-- sidebar-section tags-area -->
 

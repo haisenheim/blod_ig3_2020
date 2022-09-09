@@ -8,6 +8,8 @@ class ArticleTag extends Model
 {
     //
    protected $guarded = ['id'];
+   protected $table = 'articles_tags';
+   public $timestamps = false;
 
     public function article(){
         return $this->belongsTo('App\Models\Article');

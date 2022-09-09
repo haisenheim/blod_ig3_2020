@@ -10,37 +10,33 @@
         <div class="blog-posts">
 
             <div class="single-post">
-                <div class="image-wrapper"><img src="images/blog-8-1000x600.jpg" alt="Blog Image"></div>
+                <div class="image-wrapper"><img src="{{ asset($param->contact_uri) }}" alt="Blog Image"></div>
 
-                <h3 class="title"><b class="light-color">Contact me</b></h3>
-                <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                     laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                     architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                     consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-                    dolore magnam aliquam quaerat voluptatem.</p>
+                <h3 class="title"><b class="light-color">Contactez nous</b></h3>
+                <p class="desc">{{ $param->contact_text }}</p>
 
             </div><!-- single-post -->
 
             <div class="leave-comment-area">
-                <h4 class="title"><b class="light-color">Leave a comment</b></h4>
+                <h4 class="title"><b class="light-color">Laissez un message</b></h4>
                 <div class="leave-comment">
 
                     <form method="post">
                         <div class="row">
                             <div class="col-sm-6">
-                                <input class="name-input" type="text" placeholder="Name">
+                                <input class="name-input" type="text" placeholder="Votre nom">
                             </div>
                             <div class="col-sm-6">
-                                <input class="email-input" type="text" placeholder="Email">
+                                <input class="email-input" type="text" placeholder="Votre adresse Email">
                             </div>
                             <div class="col-sm-12">
-                                <input class="subject-input" type="text" placeholder="Subject">
+                                <input class="subject-input" type="text" placeholder="Objet">
                             </div>
                             <div class="col-sm-12">
                                 <textarea class="message-input" rows="6" placeholder="Message"></textarea>
                             </div>
                             <div class="col-sm-12">
-                                <button class="btn btn-2"><b>COMMENT</b></button>
+                                <button class="btn btn-success btn-2"><b>Envoyez</b></button>
                             </div>
 
                         </div><!-- row -->

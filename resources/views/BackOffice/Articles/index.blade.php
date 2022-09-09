@@ -15,6 +15,7 @@
                         <th>TITRE</th>
                         <th>CATEGORIE</th>
                         <td>AUTEUR</td>
+                        <th>Statut</th>
                         <td>Actions</td>
                     </tr>
                 </thead>
@@ -25,12 +26,21 @@
                             <td>{{ $slide->name }}</td>
                             <td>{{ $slide->categorie?$slide->categorie->name:'-' }}</td>
                             <td>{{ $slide->auteur?$slide->auteur->name:'-' }}</td>
+                            <td> <span class="badge badge-{{ $slide->status['color'] }}"> {{ $slide->status['name'] }} </span></td>
                             <td>
-                                @if($slide->active)
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        @if($slide->active)
                                     <a href="/admin/articles/disable/{{ $slide->id }}" class="btn btn-sm btn-danger">Desactiver</a>
-                                @else
-                                <a href="/admin/articles/enable/{{ $slide->id }}" class="btn btn-sm btn-success">Activer</a>
-                                @endif
+                                    @else
+                                    <a href="/admin/articles/enable/{{ $slide->id }}" class="btn btn-sm btn-success">Activer</a>
+                                    @endif
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="/admin/articles/edit/{{ $slide->id }}" class="btn btn-sm btn-info">Modifier</a>
+                                    </li>
+                                </ul>
+
                             </td>
                         </tr>
                     @endforeach

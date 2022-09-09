@@ -4,9 +4,10 @@ namespace App\Http\Controllers\BackOffice;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categorie;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CategorieController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,9 @@ class CategorieController extends Controller
     public function index()
     {
         //
-        $cats = Categorie::all();
+        $tags = Tag::all();
 
-        return view('BackOffice/Categories/index')->with(compact('cats'));
+        return view('BackOffice/Tags/index')->with(compact('tags'));
     }
 
     /**
@@ -41,26 +42,15 @@ class CategorieController extends Controller
     {
         //
         //dd($request->all());
-        $cat = new Categorie();
+        $cat = new Tag();
         $cat->name = $request->name;
-        $image = $request->file('image_uri');
-        if($image){
 
-            $ext = $image->getClientOriginalExtension();
-            $arr_ext = array('jpg','png','jpeg','gif');
-            if(in_array($ext,$arr_ext)) {
-                $name =  date('dhmYWsi').'.' . $ext;
-                $image->move(public_path('img/categories'), $name);
-                $cat->image_uri = $name;
-            }
-
-        }
         $cat->save();
         return back();
     }
 
     public function disable($id){
-        $slide = Categorie::where('id',$id)->first();
+        $slide = Tag::where('id',$id)->first();
         $slide->active = 0;
         $slide->save();
         return back();
@@ -68,7 +58,7 @@ class CategorieController extends Controller
     }
 
     public function enable($id){
-        $slide = Categorie::where('id',$id)->first();
+        $slide = Tag::where('id',$id)->first();
         $slide->active = 1;
         $slide->save();
         return back();

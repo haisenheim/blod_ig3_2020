@@ -25,6 +25,12 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
+                                    <label for="">TITRE DU HAUT</label>
+                                    <input type="text" name="title" required value="{{ $param->titre }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
                                     <label for="">LIEN FACEBOOK</label>
                                     <input type="text" name="facebook" value="{{ $param->facebook }}" class="form-control">
                                 </div>
@@ -50,7 +56,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label for="">TEXTE A PROPOS</label>
-                                    <textarea name="welcome"  placeholder="" id="" cols="30" class="form-control" rows="3">{{ $param->welcome }}</textarea>
+                                    <textarea name="apropos_text"  placeholder="" id="" cols="30" class="form-control" rows="3">{{ $param->apropos_text }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
@@ -59,8 +65,18 @@
                                     <input type="file" name="logo" class="form-control">
                                 </div>
                             </div>
-
-
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="">IMAGE PAGE CONTACT</label>
+                                    <input type="file" name="contact_uri" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="">IMAGE PAGE APROPOS</label>
+                                    <input type="file" name="apropos_uri" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">

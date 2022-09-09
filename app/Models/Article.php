@@ -20,4 +20,19 @@ class Article extends Model
     public function tags(){
         return $this->belongsToMany('App\Models\Tag','articles_tags');
     }
+
+   /* public function getStatusAttribute(){
+        if($this->active){
+            return "En ligne";
+        }
+        return "Hors ligne";
+    }
+    */
+    public function getStatusAttribute(){
+        $data = ['color'=>'danger','name'=>'Hors ligne'];
+        if($this->active){
+            $data = ['color'=>'success','name'=>'En ligne'];
+        }
+        return $data;
+    }
 }
